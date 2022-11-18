@@ -50,7 +50,11 @@ $(document).ready(function() {
 											}
 										}
 									});
-									result['items'] = items
+									//sort it desc
+									var ordered =  Object.fromEntries(
+										Object.entries(items).sort(([, a], [, b]) => b-a)
+									)
+									result['items'] = ordered
 									result['pagination'] = data.pagination;
 									result['query'] = data.query;
 								}
@@ -75,6 +79,27 @@ $(document).ready(function() {
 		}
 		event.preventDefault();
 	});
+	function sortProperties(obj, isNumericSort)
+{
+	isNumericSort=isNumericSort || false; // by default text sort
+	var sortable=[];
+	for(var key in obj)
+		if(obj.hasOwnProperty(key))
+			sortable.push([key, obj[key]]);
+	if(isNumericSort)
+		sortable.sort(function(a, b)
+		{
+			return b[1]-a[1];
+		});
+	else
+		sortable.sort(function(a, b)
+		{
+			var x=a[1].toLowerCase(),
+				y=b[1].toLowerCase();
+			return x<y ? -1 : x>y ? 1 : 0;
+		});
+	return sortable; // array in format [ [ key1, val1 ], [ key2, val2 ], ... ]
+}
 });
 // beutify json
     $.fn.beautifyJSON = function(options) {
