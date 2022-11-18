@@ -1,0 +1,39 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Stats API Aggregate</title>
+    <meta name="description" content="Stats API Aggregate">
+	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Recite Lookup API Tool</h1>
+        <div id="container">
+            <form>
+                <div class="form-wrapper">
+                    <div id="lookup-api" class="form-element">
+                        <label for="lookup_api">Lookup API link</label>
+                        <input type="text" class="form-control" id="lookup_api" name="lookup_api" placeholder="Lookup API link" />
+                        <p class="error">please enter the lookup API link </p>
+                    </div>
+                    <div id="aggregate-field" class="form-element">
+                        <label for="aggregate">Aggregate Field</label>
+                        <input type="text" class="form-control" id="aggregate" name="aggregate" placeholder="Aggregate Field" />
+                        <p class="error">please enter the aggregate field</p>
+                    </div>
+                    <div class="center">
+                        <button type="submit" class="form-element submit">Submit</button>
+                        <button type="button" class="form-element clear">Clear</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div id="result">
+
+        </div>
+    </div>
+    </div>
+</body>
+</html>
